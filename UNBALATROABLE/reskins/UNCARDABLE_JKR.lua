@@ -429,6 +429,8 @@
         j_baseball = {row = 0, artist = {'heroofyore'}, anim = "j_baseball_anim"},
 
         j_runner = {row = 0, artist = {'heroofyore'}, anim = "j_runner_anim"},
+
+        j_scholar = {row = 0, artist = {'ploutre'}, anim = "j_scholar_anim"},
     }
     animated_with_soul = {
         j_perkeo = {row = 0, artist = {'guac'}},
@@ -1028,6 +1030,15 @@
             path = "UNDODGEABLE.png",
             atlas_table = 'ANIMATION_ATLAS',
             frames = 39,
+            fps = 10,
+            px = 71,
+            py = 95,
+        }
+        SMODS.Atlas{
+            key = "j_scholar_anim",
+            path = "UNTEACHABLE.png",
+            atlas_table = 'ANIMATION_ATLAS',
+            frames = 4,
             fps = 10,
             px = 71,
             py = 95,
