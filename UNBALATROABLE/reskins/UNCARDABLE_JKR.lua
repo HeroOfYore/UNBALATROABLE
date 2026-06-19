@@ -403,7 +403,7 @@
     SMODS.Joker:take_ownership("j_obelisk", {
         atlas = "unobeliskable",
         pos = {x = 0, y = 0},
-        artist_credits = {"birb, heroofyore"},
+        artist_credits = {"birb", "heroofyore"},
         set_sprites = function(self, card, front)
             local randompos = math.random(0, 2)
             card.children.center:set_sprite_pos({x = randompos, y = 0})
