@@ -67,6 +67,8 @@
         j_midas_mask = {pos = 65, artist = {'heroofyore'}},
         j_banner = {pos = 66, artist = {'heroofyore'}},
         j_oops = {pos = 67, artist = {'murdock'}},
+        j_hiker = {pos = 68, artist = {'heroofyore'}},
+        j_half = {pos = 69, artist = {'heroofyore'}},
 
     }
 
@@ -156,6 +158,14 @@
         px = 71,
         py = 95,
     }
+    SMODS.Atlas{
+        key = "unquaverlingable",
+        path = "UNQUAVERLINGABLE.png",
+        px =  71,
+        py = 95,
+    }
+
+
 
 
         
@@ -202,7 +212,43 @@
                 return nil, true
             end
         }, true)
+        SMODS.Joker:take_ownership("j_turtle_bean", {
+            atlas = "unquaverlingable",
+            pos = {x = 0, y = 0},
+            artist_credits = {"heroofyore"},
+            config = {extra = {h_size = 5, h_mod = 1, cardpos = 0}},
+            loc_vars = function(self, info_queue, card)
+                return { vars = {card.ability.extra.h_size, card.ability.extra.h_mod}}
+            end,
+            calculate = function(self, card, context)
+                if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+                    if card.ability.extra.h_size - card.ability.extra.h_mod <= 0 then
+                        SMODS.destroy_cards(card, nil, nil, true)
+                        return {
+                            message = localize('msg_fed'),
+                            colour = G.C.RED
+                        }
+                    else
+                        card.ability.extra.h_size = card.ability.extra.h_size - card.ability.extra.h_mod
+                        G.hand:change_size(-card.ability.extra.h_mod)
+                        card.ability.extra.cardpos = card.ability.extra.cardpos + 1
 
+                        return {
+                            message = localize {type = 'variable', key = 'a_handsize_minus', vars = {card.ability.extra.h_mod}},
+                            colour = G.C.FILTER,
+                            card.children.center:set_sprite_pos({x = card.ability.extra.cardpos, y = 0})
+                        }
+                    end
+                end
+            end,
+            add_to_deck = function(self, card, from_debuff)
+                G.hand:change_size(card.ability.extra.h_size)
+            end,
+            remove_from_deck = function(self, card, from_debuff)
+                G.hand:change_size(-card.ability.extra.h_size)
+            end
+
+        }, true)
         SMODS.Joker:take_ownership("j_loyalty_card", {
             atlas = "unrecordable",
             pos = {x = 0, y = 0},
@@ -318,6 +364,9 @@
             end,
             calc_dollar_bonus = function(self, card)
                 return card.ability.extra.dollars
+            end,
+            add_to_deck = function(self, card, from_debuff)
+                SMODS.calculate_effect({message = 'TN: It should be all caps or no caps', duration = 20}, card)
             end
         }, true)
     end
@@ -332,6 +381,14 @@
         px = 71,
         py = 95,
     }
+    SMODS.Atlas
+    {
+        key = "unobeliskable",
+        path = "UNOBELISKABLE.png",
+        px = 71,
+        py = 95,
+    }
+
 
     SMODS.Joker:take_ownership("j_hallucination", {
         atlas = "multichoice",
@@ -341,6 +398,21 @@
             local randompos = math.random(0, 3)
             card.children.center:set_sprite_pos({x = randompos, y = 0})
         end
+    }, true)
+
+    SMODS.Joker:take_ownership("j_obelisk", {
+        atlas = "unobeliskable",
+        pos = {x = 0, y = 0},
+        artist_credits = {"birb, heroofyore"},
+        set_sprites = function(self, card, front)
+            local randompos = math.random(0, 2)
+            card.children.center:set_sprite_pos({x = randompos, y = 0})
+            if randompos ~= 0 then
+                artist_credits = {"heroofyore"}
+            else
+                artist_credits = {"birb"}
+            end
+        end,
     }, true)
 
 
@@ -431,6 +503,8 @@
         j_runner = {row = 0, artist = {'heroofyore'}, anim = "j_runner_anim"},
 
         j_scholar = {row = 0, artist = {'ploutre'}, anim = "j_scholar_anim"},
+
+        j_idol = {row = 0, artist = {'heroofyore'}, anim = "j_idol_anim"},
     }
     animated_with_soul = {
         j_perkeo = {row = 0, artist = {'guac'}},
@@ -1039,6 +1113,15 @@
             path = "UNTEACHABLE.png",
             atlas_table = 'ANIMATION_ATLAS',
             frames = 4,
+            fps = 10,
+            px = 71,
+            py = 95,
+        }        
+        SMODS.Atlas{
+            key = "j_idol_anim",
+            path = "UNIDOLABLE.png",
+            atlas_table = 'ANIMATION_ATLAS',
+            frames = 46,
             fps = 10,
             px = 71,
             py = 95,

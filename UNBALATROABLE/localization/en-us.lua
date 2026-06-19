@@ -125,6 +125,7 @@ return {
             uncardable_art_credit = "Art by ",
             uncardable_and = " and ",
             msg_eaten = "all gone",
+            msg_fed = "QUAVERLINGS SATIATED",
 
             --ui stuff
             uncard_chips = "chipispis",
