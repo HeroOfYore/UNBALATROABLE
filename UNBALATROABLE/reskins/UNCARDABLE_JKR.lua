@@ -69,6 +69,8 @@
         j_oops = {pos = 67, artist = {'murdock'}},
         j_hiker = {pos = 68, artist = {'heroofyore'}},
         j_half = {pos = 69, artist = {'heroofyore'}},
+        j_marble = {pos = 70, artist = {'heroofyore'}},
+        j_clever = {pos = 71, artist = {'heroofyore'}},
 
     }
 
@@ -343,7 +345,7 @@
                 if randomposweighted < 100 and randomposweighted >= 90 then
                     pos = 3
                 end
-                if randomposweighted < 110 and randomposweighted >= 100 then
+                if randomposweighted <= 110 and randomposweighted >= 100 then
                     pos = 4
                 end
                 card.children.center:set_sprite_pos({x = pos, y = 0})
@@ -416,7 +418,7 @@
     }, true)
 
 
-
+ 
     --end of section
 
 
@@ -505,6 +507,13 @@
         j_scholar = {row = 0, artist = {'ploutre'}, anim = "j_scholar_anim"},
 
         j_idol = {row = 0, artist = {'heroofyore'}, anim = "j_idol_anim"},
+
+        j_crazy = {row = 0, artist = {'heroofyore'}, anim = "j_crazy_anim"},
+        j_riff_raff = {row = 0, artist = {'heroofyore'}, anim = "j_riff_raff_anim"},
+        j_fortune_teller = {row = 0, artist = {'heroofyore'}, anim = "j_fortune_teller_anim"},
+        j_rough_gem = {row = 0, artist = {'heroofyore'}, anim = "j_rough_gem_anim"},
+        j_blue_joker = {row = 0, artist = {'heroofyore'}, anim = "j_blue_joker_anim"},
+        j_lusty_joker = {row = 0, artist = {'heroofyore'}, anim = "j_lusty_joker_anim"},
     }
     animated_with_soul = {
         j_perkeo = {row = 0, artist = {'guac'}},
@@ -1126,6 +1135,61 @@
             px = 71,
             py = 95,
         }
+        SMODS.Atlas{
+            key = "j_crazy_anim",
+            path = "UNSPAMABLE.png",
+            atlas_table = 'ANIMATION_ATLAS',
+            frames = 21,
+            fps = 10,
+            px = 71,
+            py = 95,
+        }
+        SMODS.Atlas{
+            key = "j_riff_raff_anim",
+            path = "UNRIOTABLE.png",
+            atlas_table = 'ANIMATION_ATLAS',
+            frames = 10,
+            fps = 10,
+            px = 71,
+            py = 95,
+        }
+        SMODS.Atlas{
+            key = "j_fortune_teller_anim",
+            path = "UNVHSABLE.png",
+            atlas_table = 'ANIMATION_ATLAS',
+            frames = 46,
+            fps = 10,
+            px = 71,
+            py = 95,
+        }
+        SMODS.Atlas{
+            key = "j_rough_gem_anim",
+            path = "UNMIXABLE.png",
+            atlas_table = 'ANIMATION_ATLAS',
+            frames = 8,
+            fps = 10,
+            px = 71,
+            py = 95,
+        }
+        SMODS.Atlas{
+            key = "j_blue_joker_anim",
+            path = "UNREFLECTABLE.png",
+            atlas_table = 'ANIMATION_ATLAS',
+            frames = 52,
+            fps = 10,
+            px = 71,
+            py = 95,
+        }
+        SMODS.Atlas{
+            key = "j_lusty_joker_anim",
+            path = "UNDISTRACTABLE.png",
+            atlas_table = 'ANIMATION_ATLAS',
+            frames = 139,
+            fps = 10,
+            px = 71,
+            py = 95,
+        }
+        
     if not UNCARDABLE.config.disabled then
         for jkr, data in pairs(G.UNCARDABLE_animated_jokers) do
             SMODS["Joker"]:take_ownership(jkr, {atlas = jkr .. "_anim",
