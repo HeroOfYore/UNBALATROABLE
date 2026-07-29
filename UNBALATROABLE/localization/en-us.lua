@@ -363,6 +363,12 @@ return {
                     "Feeeshies"
                 }
             },
+            ['nonexistante'] = {
+                ['text'] =
+                {
+                    "nonexistante"
+                }
+            },
         },
         Joker = {
              j_four_fingers={

@@ -37,7 +37,7 @@ G.ARGS.LOC_COLOURS['mcres'] = HEX('2F11BA')
 G.ARGS.LOC_COLOURS['stanza'] = G.C.stanza
 G.ARGS.LOC_COLOURS['objitude'] = HEX('FFAABB')
 G.ARGS.LOC_COLOURS['murdock'] = HEX('AC23BD')
-G.ARGS.LOC_COLOURS['8z'] = HEX('506385')
+G.ARGS.LOC_COLOURS['8z'] = HEX('6A8FCC')
 G.ARGS.LOC_COLOURS['$7bramble1'] = HEX('992D22')
 G.ARGS.LOC_COLOURS['$7bramble2'] = HEX('FFFFFF')
 G.ARGS.LOC_COLOURS['$7bramble3'] = HEX('992D22')
@@ -54,8 +54,8 @@ G.ARGS.LOC_COLOURS['suvic'] = HEX('8F8F8F')
 G.ARGS.LOC_COLOURS['yuki'] = HEX('FFB3FF')
 G.ARGS.LOC_COLOURS['grimp'] = HEX('C30606')
 G.ARGS.LOC_COLOURS['feesh'] = HEX('FF6665')
-
 G.ARGS.LOC_COLOURS['MUSTARD'] = HEX('c4a00e')
+G.ARGS.LOC_COLOURS['nonexistante'] = HEX('6A8FCD')
 
 function UNCARDABLE_artist_tooltip(_c, info_queue, card, desc_nodes, specific_vars, full_UI_table)
     localize{type = 'descriptions', set = 'UNCARDABLE Artist', key = _c.key, nodes = desc_nodes, vars = specific_vars or _c.vars}

@@ -20,6 +20,8 @@ assert(SMODS.load_file('reskins/functions.lua'))()
 if not maloaded then
     assert(SMODS.load_file('reskins/UNCARDABLE_JKR.lua'))()
 end
+assert(SMODS.load_file('reskins/UNCARDABLE_TAROT.lua'))()
+assert(SMODS.load_file('reskins/UNCARDABLE_PLANETS.lua'))()
 assert(SMODS.load_file('reskins/artistui.lua'))()
 assert(SMODS.load_file('reskins/quipadds.lua'))()
 assert(SMODS.load_file('reskins/UNCARDABLE_OTHER.lua'))()
@@ -287,6 +289,12 @@ local UNCARDABLEConfigTab = function()
         active_colour = HEX("E01BDE"),
         ref_table = UNCARDABLE.config,
         ref_value ="chipnumsis",
+    })
+    unbal_nodes[#unbal_nodes + 1] = create_toggle({
+        label = "Revert Tarot card borders from Reimagined to Original",
+        active_colour = HEX("E01BDE"),
+        ref_table = UNCARDABLE.config,
+        ref_value = "tarotoriginal",
     })
     return {
 		n = G.UIT.ROOT,

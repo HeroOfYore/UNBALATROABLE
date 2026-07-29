@@ -4,7 +4,7 @@
         j_mr_bones = {pos = 1, artist = {'heroofyore'}},
         j_sixth_sense = {pos = 2, artist = {'heroofyore'}},
         j_stencil = {pos = 3, artist = {'heroofyore'}},
-        j_wee = {pos = 4, artist = {'guac', 'heroofyore'}, {name = "j_wee"}},
+        --j_wee = {pos = 4, artist = {'guac', 'heroofyore'}, {name = "j_wee"}},
         j_photograph = {pos = 5, artist = {'heroofyore'}},
         j_diet_cola = {pos = 6, artist = {'heroofyore'}},
         j_ice_cream = {pos = 7, artist = {'heroofyore'}},
@@ -170,14 +170,8 @@
 
 
 
-        
-    if not UNCARDABLE.config.disabled then
-        SMODS.Joker:take_ownership('j_wee', {
-            loc_vars = function(self, info_queue, card)
-                return {vars = {card.ability.extra.chips, card.ability.extra.chip_mod}}
-            end
-        }, true)
 
+    if not UNCARDABLE.config.disabled then
         SMODS.Joker:take_ownership("j_popcorn", {
             atlas = "multistage",
             name = "uncardable_popcorn",
@@ -436,6 +430,8 @@
         j_zany = {row = 4, artist = {'$7bramble'}, anim = "j_zany_anim"},
         j_todo_list = {row = 0, artist = {'heroofyore'}, anim = "j_todo_list_anim"},
 
+        j_wee = {row = 0, artist = {'guac', 'heroofyore'}, {name = "j_wee_anim"}},
+
         j_egg = {row = 0, artist = {'heroofyore'}, anim = "j_egg_anim"},
         j_burnt = {row = 1, artist = {'heroofyore'}, anim = "j_burnt_anim"},
         j_invisible = {row = 2, artist = {'heroofyore'}, anim = "j_invisible_anim"},
@@ -652,6 +648,26 @@
         px = 71,
         py = 95,
     }
+    SMODS.Atlas{
+        key = "j_wee_anim",
+        path = "UNCRUNCHABLE.png",
+        atlas_table = 'ANIMATION_ATLAS',
+        frames = 1,
+        fps = 20,
+        px = 71,
+        py = 95,
+    }
+
+    SMODS.Atlas{
+        key = "j_weeSPIN_anim",
+        path = "UNCRUNCHSPINABLE.png",
+        atlas_table = 'ANIMATION_ATLAS',
+        frames = 30,
+        fps = 20,
+        px = 71,
+        py = 95,
+    }
+
         SMODS.Atlas{
         key = "j_odd_todd_anim",
         path = "UNFIVEABLE.png",
@@ -1307,6 +1323,43 @@
             soul_pos = {x = 0, y = 1 + data.row},
         }, true)
         end
+
+                
+        SMODS.Joker:take_ownership('j_wee', {
+            loc_vars = function(self, info_queue, card)
+                return {vars = {card.ability.extra.chips, card.ability.extra.chip_mod}}
+            end,
+            calculate = function(self, card, context)
+                if context.individual and context.cardarea == G.play and context.other_card:get_id() == 2 and not context.blueprint then
+                    card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chip_mod
+                    return 
+                    {
+                        message = localize('k_upgrade_ex'),
+                        colour = G.C.CHIPS,
+                        message_card = card
+                    }
+                end
+                --print(G.CONTROLLER.hovering.target)
+                local t = G.CONTROLLER.hovering.target
+                if t.config.center_key == "j_wee" then
+                    print("changing animation")
+                    if card.children.center.atlas ~= G.ANIMATION_ATLAS["uncardable_j_weeSPIN_anim"] then
+                        card.children.center.atlas = G.ANIMATION_ATLAS["uncardable_j_weeSPIN_anim"]
+                    end
+
+                else
+                    print("no change")
+                    card.children.center.atlas = G.ANIMATION_ATLAS["uncardable_j_wee_anim"]
+                end
+                if context.joker_main then
+                    return {
+                        chips = card.ability.extra.chips
+                    }
+                end
+
+
+            end,
+        }, true)
     end
 
     SMODS.Atlas {
