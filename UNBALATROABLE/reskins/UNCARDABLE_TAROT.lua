@@ -10,7 +10,7 @@ G.UNCARDATAROT = {
     c_justice = {pos = 8, artist = {'heroofyore'}},
     c_hermit = {pos = 9,  artist = {'heroofyore'}},
     c_wheel_of_fortune = {pos = 10,  artist = {'heroofyore'}},
-    c_hanged_man = {pos = 12, artist = {'epicelle'}},
+    c_hanged_man = {pos = 12, artist = {'ploutre'}},
 }
 
 
