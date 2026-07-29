@@ -1,6 +1,9 @@
 # UNCARDABLE
 unbeatable Balatro reskin
-Note: This README will continue being updated, but is currently slightly out-of-date. The most accurate form is:
+
+If you've never installed a balatro mod, follow this guide: https://github.com/Steamodded/smods/wiki (not made by us)
+
+Note: This README will continue being updated, but is currently extremely out-of-date. The most accurate form is:
 https://docs.google.com/spreadsheets/d/1pr7zdcIzySzhCSW_rsKbKsyvtOEIOXChVPk57enhA9U
 
 Still in the works, likely to be updated fairly frequently. Currently contains: 
