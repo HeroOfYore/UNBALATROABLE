@@ -1325,7 +1325,7 @@
         end
 
                 
-        SMODS.Joker:take_ownership('j_wee', {
+        --[[SMODS.Joker:take_ownership('j_wee', {
             loc_vars = function(self, info_queue, card)
                 return {vars = {card.ability.extra.chips, card.ability.extra.chip_mod}}
             end,
@@ -1342,8 +1342,8 @@
                 --print(G.CONTROLLER.hovering.target)
                 local t = G.CONTROLLER.hovering.target
                 if t.config.center_key == "j_wee" then
-                    print("changing animation")
                     if card.children.center.atlas ~= G.ANIMATION_ATLAS["uncardable_j_weeSPIN_anim"] then
+                        print("changing animation")
                         card.children.center.atlas = G.ANIMATION_ATLAS["uncardable_j_weeSPIN_anim"]
                     end
 
@@ -1359,7 +1359,7 @@
 
 
             end,
-        }, true)
+        }, true)]]
     end
 
     SMODS.Atlas {
