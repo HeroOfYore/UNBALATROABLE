@@ -10,7 +10,17 @@ G.UNCARDATAROT = {
     c_justice = {pos = 8, artist = {'heroofyore'}},
     c_hermit = {pos = 9,  artist = {'heroofyore'}},
     c_wheel_of_fortune = {pos = 10,  artist = {'heroofyore'}},
+    c_strength = {pos = 11, artist = {'heroofyore'}},
     c_hanged_man = {pos = 12, artist = {'ploutre'}},
+    c_death = {pos = 13, artist = {'heroofyore'}},
+    c_temperance = {pos = 14, artist = {'heroofyore'}},
+    c_devil = {pos = 15, artist = {'heroofyore'}},
+    c_tower = {pos = 16, artist = {'heroofyore'}},
+    c_star = {pos = 17, artist = {'heroofyore'}},
+    
+    c_sun = {pos = 19, artist = {'heroofyore'}},
+    c_judgement = {pos = 20, artist = {'heroofyore'}},
+    c_world = {pos = 21, artist = {'heroofyore'}},
 }
 
 
